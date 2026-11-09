@@ -37,7 +37,7 @@ func GetIPs() ([]string, []string, error) {
 	}
 
 	if !result.Success {
-		return nil, nil, fmt.Errorf(strings.Join(result.Errors, "|"))
+		return nil, nil, fmt.Errorf("%v", strings.Join(result.Errors, "|"))
 	}
 
 	return result.Result.Ipv4Cidrs, result.Result.Ipv6Cidrs, nil
