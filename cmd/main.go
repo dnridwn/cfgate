@@ -13,6 +13,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var version = "dev"
+
 func main() {
 	cmd := &cobra.Command{}
 	cmd.Use = ""
@@ -27,6 +29,14 @@ func main() {
 	cmd.Flags().StringVarP(&cmdArgs.InstanceID, "instance-id", "i", "", "ID of target instance")
 	cmd.MarkFlagRequired("instance-id")
 	cmd.Flags().BoolVarP(&cmdArgs.IncludeIPv6, "include-ipv6", "", false, "Include IPv6")
+
+	cmd.AddCommand(&cobra.Command{
+		Use:   "version",
+		Short: "Show the version of the CLI",
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("Version:", version)
+		},
+	})
 
 	cmd.RunE = func(cmd *cobra.Command, args []string) error {
 		ipv4Cidrs, ipv6Cidrs, err := cloudflare.GetIPs()
