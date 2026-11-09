@@ -50,14 +50,14 @@ func main() {
 				{
 					Action:      tencentcloud.ACCEPT,
 					CidrBlock:   ipv4Cidr,
-					Description: "Auto-set by Automation",
+					Description: "Auto-set by cfgate",
 					Port:        "80",
 					Protocol:    tencentcloud.TCP,
 				},
 				{
 					Action:      tencentcloud.ACCEPT,
 					CidrBlock:   ipv4Cidr,
-					Description: "Auto-set by Automation",
+					Description: "Auto-set by cfgate",
 					Port:        "443",
 					Protocol:    tencentcloud.TCP,
 				},
@@ -72,14 +72,14 @@ func main() {
 					{
 						Action:      tencentcloud.ACCEPT,
 						CidrBlock:   ipv6Cidr,
-						Description: "Auto-set by Automation",
+						Description: "Auto-set by cfgate",
 						Port:        "80",
 						Protocol:    tencentcloud.TCP,
 					},
 					{
 						Action:      tencentcloud.ACCEPT,
 						CidrBlock:   ipv6Cidr,
-						Description: "Auto-set by Automation",
+						Description: "Auto-set by cfgate",
 						Port:        "443",
 						Protocol:    tencentcloud.TCP,
 					},

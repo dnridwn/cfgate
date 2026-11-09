@@ -7,7 +7,7 @@ Keep your Tencent Cloud Lighthouse firewall in sync with Cloudflare's IP ranges.
 ## How it works
 
 1. Fetches Cloudflare's IPv4 (and optionally IPv6) CIDRs from the [Cloudflare IP API](https://api.cloudflare.com/client/v4/ips).
-2. Builds `ACCEPT` firewall rules for **TCP ports 80 and 443**, one per Cloudflare CIDR, tagged with the description `"Auto-set by Automation"`.
+2. Builds `ACCEPT` firewall rules for **TCP ports 80 and 443**, one per Cloudflare CIDR, tagged with the description `"Auto-set by cfgate"`.
 3. Lists the current firewall rules on the target Tencent Cloud Lighthouse instance.
 4. Preserves all existing rules that are **not** TCP 80 or 443, and merges them with the new Cloudflare rules.
 5. Applies the merged ruleset back to the instance using `ModifyFirewallRules`, including the latest `FirewallVersion` to avoid clobbering concurrent changes.
